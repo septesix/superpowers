@@ -584,6 +584,13 @@ Full pressure-scenario runs are the final gate, but they are slow and expensive 
 4. **Manually read every flagged match.** Score programmatically if you like, but template echoes and quoted counter-examples masquerade as hits; automated counts alone overstate both failure and success.
 5. **Variance is a metric.** When guidance lands, reps converge on the same shape. Five different interpretations across five reps means the wording isn't binding — tighten the form before adding words.
 
+6. **Report graded-of-observed.** An aborted, empty or timed-out run is not a sample: 0 of 5 is
+untested, never a pass. Quote the denominator beside every rate.
+7. **Label what each assertion grades** - behaviour, the instrument, or the presence of words - and
+never sum the kinds into one headline integer. A suite can be 90% self-examination and read as "green".
+8. **Every mode needs a scenario that reaches it.** A mode no test enters is untested; the two most
+expensive findings of one 30-hour project were exactly there, invisible for the whole build.
+
 Micro-tests verify wording; they do not replace pressure scenarios for discipline skills.
 
 **Testing methodology:** See [testing-skills-with-subagents.md](testing-skills-with-subagents.md) for the complete testing methodology:
@@ -593,6 +600,11 @@ Micro-tests verify wording; they do not replace pressure scenarios for disciplin
 - Meta-testing techniques
 
 ## Anti-Patterns
+
+### ❌ Repetition as Depth
+11 runs of one scenario, 1 run of another, reported as equal confidence.
+**Why bad:** repetition measures determinism, not coverage. The untested scenario is where the
+findings are.
 
 ### ❌ Narrative Example
 "In session 2025-10-03, we found empty projectDir caused..."
