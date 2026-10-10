@@ -23,6 +23,11 @@ Tests failing (<N> failures). Must fix before completing:
 [Show failures]
 ```
 
+**Then check the run dirtied nothing.** `git status --porcelain` must be empty *after* the suite, not
+just before it, and nothing compiled (`__pycache__`, `*.pyc`, `build/`) may be tracked in what you ship.
+Tracked build output rewrites itself on every test run, which quietly destroys the one signal you use to
+ask "did anything actually change?" - and it ships to whoever installs the package.
+
 **If tests pass:** continue to Step 2.
 
 ## Step 2: Detect Environment

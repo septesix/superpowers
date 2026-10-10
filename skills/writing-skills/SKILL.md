@@ -219,7 +219,19 @@ Use words an agent would search for:
 - Frequently-loaded skills: <200 words total
 - Other skills: <500 words (still be concise)
 
+**Numbers you tell agents to obey are measurements, not preferences.** No threshold ships without ≥5
+comparable artifacts, and the distribution (n, median, max) belongs beside the number where a
+maintainer can see it. Cap the *shape* rather than the sum where the artifact has parts - a total is a
+quota, and quotas are met by spreading the same bulk thinner. In one project, three thresholds were
+each wrong in the same direction (set just above the largest thing measured so far) and had to be
+raised after the next ordinary run broke them; the fourth was fixed only by changing what was counted.
+See superpowers:measurement-integrity.
+
 **Techniques:**
+
+**Re-check after trimming:** a length cut that removes the *only* copy of a rule is a silent
+regression - the file still reads well and the contract no longer exists. After any trim, re-run
+whatever grades that file, and prefer moving detail to a reference over deleting it.
 
 **Move details to tool help:**
 ```bash
@@ -473,6 +485,10 @@ Before writing guidance, classify the baseline failure. The form that bulletproo
 
 **Rules for whichever form you pick:**
 - **No nuance clauses.** "Don't X unless it matters" reopens the negotiation — appending a single nuance clause to a winning recipe degraded it from consistent to noisy in the same wording tests. Express a real exception as its own conditional on an observable predicate.
+- **Placement is a variable, and cheaper to test than wording.** When compliance is intermittent
+  (2 of 3, not 0 of 3), move the rule *inside the ordered procedure the agent is walking at the moment
+  the action is due*, keep the sentence identical, and re-run with location as the only change. A rule
+  in a reference paragraph gets consulted; a rule in a walked step gets obeyed.
 - **Exemption clauses don't scope.** "This limit doesn't apply to code blocks" still suppresses code blocks. If part of the output must be exempt, restructure so the rule can't reach it.
 
 ## Bulletproofing Skills Against Rationalization
@@ -584,6 +600,13 @@ Full pressure-scenario runs are the final gate, but they are slow and expensive 
 4. **Manually read every flagged match.** Score programmatically if you like, but template echoes and quoted counter-examples masquerade as hits; automated counts alone overstate both failure and success.
 5. **Variance is a metric.** When guidance lands, reps converge on the same shape. Five different interpretations across five reps means the wording isn't binding — tighten the form before adding words.
 
+6. **Report graded-of-observed.** An aborted, empty or timed-out run is not a sample: 0 of 5 is
+untested, never a pass. Quote the denominator beside every rate.
+7. **Label what each assertion grades** - behaviour, the instrument, or the presence of words - and
+never sum the kinds into one headline integer. A suite can be 90% self-examination and read as "green".
+8. **Every mode needs a scenario that reaches it.** A mode no test enters is untested; the two most
+expensive findings of one 30-hour project were exactly there, invisible for the whole build.
+
 Micro-tests verify wording; they do not replace pressure scenarios for discipline skills.
 
 **Testing methodology:** See [testing-skills-with-subagents.md](testing-skills-with-subagents.md) for the complete testing methodology:
@@ -593,6 +616,11 @@ Micro-tests verify wording; they do not replace pressure scenarios for disciplin
 - Meta-testing techniques
 
 ## Anti-Patterns
+
+### ❌ Repetition as Depth
+11 runs of one scenario, 1 run of another, reported as equal confidence.
+**Why bad:** repetition measures determinism, not coverage. The untested scenario is where the
+findings are.
 
 ### ❌ Narrative Example
 "In session 2025-10-03, we found empty projectDir caused..."

@@ -127,6 +127,10 @@ Confirm:
 
 **Test errors?** Fix error, re-run until it fails correctly.
 
+**0 tests ran?** A file that collected nothing, or crashed before
+running, is neither RED nor green — it did not execute. Fix the harness, then
+watch the failure.
+
 ### GREEN - Minimal Code
 
 Write simplest code to pass the test.
@@ -175,6 +179,7 @@ npm test path/to/test.test.ts
 
 Confirm:
 - Test passes
+- The test count actually grew (0 collected is not GREEN)
 - Other tests still pass
 - Output pristine (no errors, warnings)
 

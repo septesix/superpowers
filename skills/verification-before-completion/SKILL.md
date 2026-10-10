@@ -26,7 +26,8 @@ BEFORE claiming any status or expressing satisfaction:
 
 1. IDENTIFY: What command proves this claim?
 2. RUN: Execute the FULL command (fresh, complete)
-3. READ: Full output, check exit code, count failures
+3. READ: Full output, check exit code, count failures AND count artifacts
+   graded (N of M). Zero graded = untested, not passing.
 4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
@@ -39,7 +40,8 @@ Skip any step = lying, not verifying
 
 | Claim | Requires | Not Sufficient |
 |-------|----------|----------------|
-| Tests pass | Test command output: 0 failures | Previous run, "should pass" |
+| Tests pass | Test command output: 0 failures, N>0 tests actually ran | Previous run, "should pass" |
+| "N checks pass" | Split by kind: behaviour / instrument / wording (superpowers:measurement-integrity) | One summed integer |
 | Linter clean | Linter output: 0 errors | Partial check, extrapolation |
 | Build succeeds | Build command: exit 0 | Linter passing, logs look good |
 | Bug fixed | Test original symptom: passes | Code changed, assumed fixed |
@@ -56,6 +58,7 @@ Skip any step = lying, not verifying
 - Relying on partial verification
 - Thinking "just this once"
 - Tired and wanting work over
+- An aggregate count you have never decomposed into what each check grades
 - **ANY wording implying success without having run verification**
 
 ## Rationalization Prevention
@@ -63,6 +66,7 @@ Skip any step = lying, not verifying
 | Excuse | Reality |
 |--------|---------|
 | "Should work now" | RUN the verification |
+| "The suite is green" | Green at what: behaviour, your tooling, or wording? |
 | "I'm confident" | Confidence ≠ evidence |
 | "Just this once" | No exceptions |
 | "Linter passed" | Linter ≠ compiler |

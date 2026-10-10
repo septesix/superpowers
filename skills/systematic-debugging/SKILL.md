@@ -117,6 +117,17 @@ You MUST complete each phase before proceeding to the next.
    - Keep tracing up until you find the source
    - Fix at source, not at symptom
 
+6. **Verify the Measuring Tool**
+
+   **WHEN a number, count, or scan output is what you are about to explain:**
+   - If you wrote the counter this session, it is a hypothesis, not a finding
+   - Hand-read ONE raw artifact the counter claims matches, and ONE it claims is clean
+   - Both must be possible: if the tool cannot fail, it has not been tested
+   - Distinguish "no findings" from "nothing read" — the two print the same way
+
+   A fix written from an unvalidated counter treats a measurement bug as a defect.
+   See superpowers:measurement-integrity.
+
 ### Phase 2: Pattern Analysis
 
 **Find the pattern before fixing:**
