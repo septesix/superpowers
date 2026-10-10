@@ -194,6 +194,11 @@ read its output, and compare. Three outcomes:
 - **Matches.** Next step.
 - **The code is wrong.** Use superpowers:systematic-debugging. Find the
   cause; never patch the symptom to make the step's output match.
+- **The step's edit didn't land.** This reads identically to the two above: output is
+  wrong, the code looks fine. Before ruling on code or plan, read the diff (`git diff`, or
+  re-read the region you targeted). A replacement that matched nothing, or a message written to a
+  command that swallowed it, is the cheapest explanation and the one you will not suspect, because
+  you remember deciding to make the change. Verify the edit as an observation, not a memory.
 - **The plan is wrong** — a step contradicts the spec, an interface from an
   earlier task doesn't match what this task consumes, a command that
   cannot work. Rule on the smallest change that satisfies the spec, ledger
@@ -310,6 +315,7 @@ Use superpowers:finishing-a-development-branch.
 | "I remember what Task N says" | You remember a summary. The brief has the exact values. Read it. |
 | "The plan's code is right, skip watching the test fail" | A test you never saw fail proves nothing. It is one step. Run it. |
 | "I'll run the full suite at the end instead of per step" | Per-step runs are how you learn which step broke it. The end-of-task run is the contract, not a substitute. |
+| "I made that edit" | The edit is a claim. Read it back before ruling on anything. |
 | "The plan is wrong here, I'll just do the right thing" | Do the right thing and ledger the ruling. Unledgered deviation is a decision made in secret. |
 | "I'll write the ledger lines after a few tasks" | Compaction does not wait for a convenient moment. One line per task, in the same message as the commit. |
 | "Let me check in before the next task" | They chose inline to spend less. Progress prompts spend their time instead. Only the four stops stop you. |
