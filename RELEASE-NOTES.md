@@ -1,5 +1,27 @@
 # Superpowers Release Notes
 
+## Unreleased
+
+### New Skills
+
+- **measurement-integrity** - Before quoting a number, know what graded it. Reports `N graded of M`, splits checks into behaviour / instrument / wording, requires hand-verification of one pass and one fail from raw artifacts for any counter you wrote this session, and forbids thresholds set from fewer than 5 measurements. Cap the shape, not the sum.
+
+### Skill Updates
+
+- **verification-before-completion** - Gate step 3 now counts artifacts graded as well as failures; "N checks pass" needs its composition stated.
+- **systematic-debugging** - New Phase 1 step: verify the measuring tool before theorising from its output. A tool that cannot fail has not been tested.
+- **test-driven-development** - 0 tests collected, or a crash before running, is neither RED nor GREEN.
+- **writing-skills** - Report the denominator; label what each assertion grades; every mode needs a scenario that reaches it. Placement added as a testable variable, trim-safety rule, and thresholds must cite the distribution they came from.
+- **executing-plans** - A third outcome for a failing step: the edit never landed. Read the diff before ruling on code or plan.
+- **finishing-a-development-branch** - Step 1 checks the tree is clean *after* the suite, and that no compiled output is tracked in what ships.
+- **receiving-code-review** - When a reviewer's number disagrees with yours, reconcile the counting function before deciding who is right.
+
+All additions derive from one 30-hour project's recorded artifacts (47 commits, 44 evidence transcripts);
+the incident behind each line is cited in its commit message rather than in the skill, so the guidance
+stays reusable. Two pressure-scenario baselines for the instrument rules came back unanimous - the
+hypothetical cannot produce the failure - so those rules are justified behaviourally, and the commits
+say so instead of implying a test that did not happen.
+
 ## v6.4.2 (2026-09-25)
 
 `writing-plans` produces leaner plans, faster. Plans now record the decisions an implementer needs (signatures, test assertions, the spec's values) instead of writing out the code. Some frontier models, including Opus 5.5, could get overzealous during plan writing and, with certain prompting, would sometimes try to implement the entire project while designing the plan. The new skill keeps planning focused on the plan. When we reproduced the original report, the scratch builds went away, and plans took a quarter of the time and about a third of the tokens. Thanks to Harper Reed for the report and session bundle. (#2333)
