@@ -47,6 +47,12 @@ IF any item is unclear:
 WHY: Items may be related. Partial understanding = wrong implementation.
 ```
 
+**When the reviewer's number disagrees with yours.** Reconcile the *counting function* before the
+conclusion: what each of you included, excluded, and over which files. Two accurate measurements of
+different quantities read as a contradiction about the world, and the tempting fix - changing the
+artifact to satisfy the stranger's number - damages the thing that was never wrong. Ask "what did each
+count?" before "who is right?".
+
 **Example:**
 ```
 your human partner: "Fix 1-6"
